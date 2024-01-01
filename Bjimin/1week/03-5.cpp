@@ -19,13 +19,6 @@ int main() {
 		sums.push_back(sums.at(i-1) + temp);
 	}
 
-	for(i=0; i<N+1; i++){
-		for(j=0; j<i; j++){
-			if((sums.at(i)-sums.at(j))%M == 0){
-				count++;
-			}
-		}
-	}
 
 	cout<<count<<endl;	
 }

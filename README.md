@@ -1,1 +1,1 @@
-"# KW-CodingTestMate" 
+KW-CodingTestMate

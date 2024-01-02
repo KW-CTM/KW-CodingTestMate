@@ -37,23 +37,25 @@ int main() {
             break;
         }
 
-        if(a_cnt >= require_a && c_cnt >= require_c && g_cnt >= require_g && t_cnt >= require_t) {
-            if(j-i+1 == password_length) {
-                    cnt++;
-                switch (dnas[i])
-                {
-                case 'G': g_cnt--; break;
-                case 'A': a_cnt--; break;
-                case 'T': t_cnt--; break;
-                case 'C': c_cnt--; break;
-                default:
-                    break;
-                }
-                i++;
-            }
-        } 
+        if(j-i+1 < password_length) {
+            j++;
 
-        j++;
+        } else {
+            if(a_cnt >= require_a && c_cnt >= require_c && g_cnt >= require_g && t_cnt >= require_t) {
+                cnt++;
+            }
+            switch (dnas[i])
+            {
+            case 'G': g_cnt--; break;
+            case 'A': a_cnt--; break;
+            case 'T': t_cnt--; break;
+            case 'C': c_cnt--; break;
+            default:
+                break;
+            }
+            i++;
+            j++;
+        }
     }
 
     printf("%d\n", cnt);

@@ -15,24 +15,24 @@ int main(){
 
     stack <int> s;
 
-    while(current != cnt+1){
-        if(num > cnt+1){
+    while(current != cnt+1){       //현재 가리키는 배열이 총 수가 되기 전까지 반복
+        if(num > cnt+1){           //넣는 숫자가 총 수보다 커지면 NO 출력
             cout<<"NO\n";
             return 0;
         }
 
-        if(s.empty()){
+        if(s.empty()){             //스택이 비어 있으면 추가함
             s.push(num);
             num++;
             result.push_back('+');
         }
         else{
-            if(array[current] == s.top()){
+            if(array[current] == s.top()){     //현재 가리키는 배열이 같으면 스택에서 빼고 -출력
                 s.pop();
                 current++;
                 result.push_back('-');
             }
-            else{
+            else{                            //같지 않으면 스택에 넣고 +출력
                 s.push(num);
                 num++;
                 result.push_back('+');

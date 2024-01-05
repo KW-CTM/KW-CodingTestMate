@@ -25,6 +25,5 @@ int main() {
             total -= 1;
         count++;
     }
-
     cout << total;
 }

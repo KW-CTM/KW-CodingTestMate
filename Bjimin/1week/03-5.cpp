@@ -23,6 +23,7 @@ int main() {
 
 	for(i=1; i<=N; i++){
 		cin>>temp;
+		
 		remains.push_back((temp + remains[i-1])%M);
 		if(remains[i] == 0) { count++; }
 		arr[remains[i]]++;
@@ -30,25 +31,15 @@ int main() {
 
 	for(i=0; i<M; i++){
 		//나머지값들 등장한 횟수
-		//조합 계산
-		count += combination(arr[i], 2);
+		//r이 2로 고정된 조합 계산
+		/*
+		nCr = n! / ((n-r)! r!)
+		r이 2로 고정되면 n * n-1 / 2
+		*/
+
+		count += arr[i] * (arr[i]-1) / 2;
 	}
 
 	cout<<count<<endl;
 	delete[] arr;
-}
-
-int combination(int n, int r) {
-	if (n <= 0 || r <= 0) {
-		if(r == 0) return 1;
-		else return 0;
-	} 
-	
-	if(n == r) {
-		return 1;
-	} else if (n < r) {
-		return 0;
-	}
-
-	return combination(n-1, r-1) + combination(n-1, r);
 }

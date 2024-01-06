@@ -23,8 +23,12 @@ int main() {
 
 	for(i=1; i<=N; i++){
 		cin>>temp;
-		
-		remains.push_back((temp + remains[i-1])%M);
+
+		remains.push_back(temp + remains[i-1]);
+	}
+
+	for(i=1; i<=N; i++) {
+		remains[i] = remains[i]%M;
 		if(remains[i] == 0) { count++; }
 		arr[remains[i]]++;
 	}

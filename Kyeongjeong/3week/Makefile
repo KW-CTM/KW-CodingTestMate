@@ -1,4 +1,4 @@
-SURC = 05-23.cpp
+SURC = 05-26.cpp
 EXEC = run
 CC = g++
 FLAG = -std=c++11 -g

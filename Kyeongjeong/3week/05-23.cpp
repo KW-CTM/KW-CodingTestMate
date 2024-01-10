@@ -2,39 +2,30 @@
 #include <vector>
 using namespace std;
 
-void dfs(int node, vector<vector<int>>& nums, vector<bool>& visited, int& cnt) {
+void dfs(int node, vector<vector<int>>& nums, vector<bool>& visited) {
 
     visited[node] = true;
-    ++cnt;
-
-    if(cnt == 5) {
-        cout << 1;
-        exit(0);
-    }
-
     for (int i = 0; i < nums[node].size(); i++) {
         int neighbor = nums[node][i];
         if (!visited[neighbor]) {
-            dfs(neighbor, nums, visited, cnt);
+            dfs(neighbor, nums, visited);
         }
     }
-    visited[node] = false;
-    --cnt;
 }
 
 int main() {
-
+    
     ios::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
 
-    int nodeNum = 0, edgeNum = 0, cnt = 0, fir, sec;
-    cin >> nodeNum >>edgeNum;
+    int nodeNum, edgeNum, fir, sec, cnt = 0;
+    cin >> nodeNum >> edgeNum;
 
     vector<vector<int>> nums(nodeNum + 1);
-    vector<bool> visited(nodeNum, false);
+    vector<bool> visited(nodeNum + 1, false);
 
-    for(int i = 0; i < edgeNum; i++) {
+    for (int i = 0; i < edgeNum; i++) {
         cin >> fir >> sec;
         nums[fir].push_back(sec);
         nums[sec].push_back(fir);
@@ -42,8 +33,9 @@ int main() {
 
     for (int i = 1; i <= nodeNum; i++) {
         if (!visited[i]) {
-            dfs(i, nums, visited, cnt);
+            ++cnt;
+            dfs(i, nums, visited);
         }
     }
-    cout << 0;
+    cout << cnt;
 }

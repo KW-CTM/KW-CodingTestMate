@@ -7,7 +7,7 @@ using namespace std;
 int main(){
     int cnt, start, end, num, result = 0;
     cin >> cnt;
-    vector <int> array(cnt);
+    vector <int> array(cnt);       //음수도 입력으로 들어옴
 
     for(int i=0; i<cnt; i++){
         cin >> array[i];

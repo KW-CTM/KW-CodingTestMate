@@ -15,7 +15,7 @@ int main(){
     for(int i=0; i<num; i++){
         cin >> array[i];
     }
-    sort(array.begin(), array.end());
+    sort(array.begin(), array.end());      //음수 포함해서 sort를 해야 하기 때문에 크기에 맞게 저장해야함
 
     int cnt, search;
     cin >> cnt;
